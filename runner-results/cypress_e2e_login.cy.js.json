@@ -1,0 +1,10 @@
+{
+  "suites": 1,
+  "tests": 3,
+  "passes": 2,
+  "pending": 0,
+  "failures": 1,
+  "start": "2025-09-13T03:44:14.593Z",
+  "duration": 13443,
+  "file": "cypress\\e2e\\login.cy.js"
+}

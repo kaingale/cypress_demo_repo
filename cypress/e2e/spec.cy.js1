@@ -1,0 +1,34 @@
+/// <reference types="cypress" />
+describe('template spec', () => {
+
+  it('passes', () => {
+    cy.visit('https://www.saucedemo.com/')
+    cy.get('[data-test="username"]').type('standard_user')
+    cy.get('[data-test="password"]').type('secret_sauce')
+    cy.get('[data-test="login-button"]').click()
+    cy.get('[data-test="add-to-cart-sauce-labs-backpack"]').click()
+    cy.get('[data-test="shopping-cart-link"]').contains('1').should('be.visible')
+    cy.get('[data-test="shopping-cart-link"]').click();
+    cy.get('[data-test="inventory-item-name"]').invoke('text').should('equal', 'Sauce Labs Backpack');
+    cy.get('[data-test="remove-sauce-labs-backpack"]').contains('Remove').should('be.visible')
+    cy.get('[data-test="continue-shopping"]').contains('Continue Shopping').should('be.visible')
+    cy.get('[data-test="checkout"]').contains('Checkout').should('be.visible')
+    cy.get('[data-test="checkout"]').click()
+    cy.get('[data-test="firstName"]').type('Kapil')
+    cy.get('[data-test="lastName"]').type('Ingale')
+    cy.get('[data-test="postalCode"]').type('444709')
+    cy.get('[data-test="cancel"]').contains('Cancel').should('be.visible')
+    cy.get('[data-test="continue"]').click()
+    cy.get('[data-test="title"]').contains('Checkout: Overview').should('be.visible')
+    cy.get('[data-test="checkout-summary-container"] .summary_info').should('be.visible')
+    cy.get('[data-test="cancel"]').contains('Cancel').should('be.visible')
+    cy.get('[data-test="finish"]').contains('Finish').should('be.visible')
+    cy.get('[data-test="finish"]').click()
+    cy.get('[data-test="complete-header"]').contains('Thank you for your order!').should('be.visible')
+    cy.get('[data-test="complete-text"]').contains('Your order has been dispatched, and will arrive just as fast as the pony can get there!').should('be.visible')
+    cy.get('[data-test="back-to-products"]').contains('Back Home').should('be.visible')
+    Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope Process
+
+
+  })
+})
